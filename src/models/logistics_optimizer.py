@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, r2_score
 
@@ -23,7 +23,7 @@ def prepare_shipment_features(shipments_df, routes_df):
     return df, features
 
 def train_delay_predictor(shipments_df, routes_df):
-    """Train model to predict shipment delays"""
+    """Train model to predict shipment delays using Random Forest"""
     df, features = prepare_shipment_features(shipments_df, routes_df)
     
     df = df.dropna(subset=features + ['delay_minutes'])
@@ -32,7 +32,7 @@ def train_delay_predictor(shipments_df, routes_df):
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
-    model = GradientBoostingRegressor(n_estimators=100, max_depth=5, random_state=42)
+    model = RandomForestRegressor(n_estimators=100, max_depth=10, random_state=42)
     model.fit(X_train, y_train)
     
     y_pred = model.predict(X_test)
@@ -45,13 +45,13 @@ def predict_route_delays(model, routes_df, features):
     """Predict delays for all routes"""
     test_data = []
     for _, route in routes_df.iterrows():
-        for hour in [8, 14, 18]:  # Morning, afternoon, evening
+        for hour in [8, 14, 18]:
             test_data.append({
                 'route_id': route['route_id'],
                 'distance_km': route['distance_km'],
                 'avg_time_mins': route['avg_time_mins'],
                 'hour_of_day': hour,
-                'day_of_week': 2,  # Wednesday
+                'day_of_week': 2,
                 'is_weekend': 0,
                 'route_avg_delay': route.get('avg_delay', 15)
             })

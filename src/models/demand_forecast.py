@@ -1,12 +1,15 @@
 import pandas as pd
 import numpy as np
-from prophet import Prophet
-from sklearn.metrics import mean_absolute_percentage_error
-import warnings
-warnings.filterwarnings('ignore')
+
+def exponential_smoothing_simple(data, alpha=0.3):
+    """Simple Exponential Smoothing"""
+    result = [data.iloc[0]]
+    for i in range(1, len(data)):
+        result.append(alpha * data.iloc[i] + (1 - alpha) * result[-1])
+    return result[-1]
 
 def forecast_product_demand(orders_df, product_id, periods=30):
-    """Forecast demand for a specific product"""
+    """Forecast demand for a specific product using exponential smoothing"""
     product_orders = orders_df[orders_df['product_id'] == product_id].copy()
     product_orders['order_date'] = pd.to_datetime(product_orders['order_date'])
     
@@ -18,20 +21,24 @@ def forecast_product_demand(orders_df, product_id, periods=30):
     daily_demand = daily_demand.set_index('ds').reindex(date_range, fill_value=0).reset_index()
     daily_demand.columns = ['ds', 'y']
     
-    model = Prophet(daily_seasonality=False, weekly_seasonality=True, yearly_seasonality=True)
-    model.fit(daily_demand)
+    # Simple forecast using exponential smoothing
+    last_value = exponential_smoothing_simple(daily_demand['y'])
     
-    future = model.make_future_dataframe(periods=periods)
-    forecast = model.predict(future)
+    future_dates = pd.date_range(daily_demand['ds'].max() + pd.Timedelta(days=1), periods=periods)
+    forecast = pd.DataFrame({
+        'ds': future_dates,
+        'yhat': [last_value] * periods,
+        'yhat_lower': [last_value * 0.8] * periods,
+        'yhat_upper': [last_value * 1.2] * periods
+    })
     
-    return forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(periods)
+    return forecast
 
 def calculate_dynamic_price(forecast_demand, competitor_price, cost, base_price, elasticity=-1.5):
     """Calculate optimal price based on demand forecast"""
     if forecast_demand <= 0:
         return base_price
     
-    # Simple pricing logic
     demand_factor = min(1.3, max(0.7, forecast_demand / 100))
     comp_factor = competitor_price / base_price if competitor_price > 0 else 1.0
     
