@@ -22,7 +22,6 @@ virtualenv/
 
 # Streamlit
 .streamlit/secrets.toml
-.streamlit/config.toml
 
 # IDEs
 .vscode/
@@ -88,9 +87,11 @@ dmypy.json
 *.hdf5
 *.joblib
 
-# Large data files (uncomment if needed)
-# data/raw/*.csv
-# data/processed/*.csv
+# Render/Heroku files (not needed for Streamlit)
+Procfile
+setup.sh
+runtime.txt
+.python-version
 
 # Compiled files
 *.pyc
