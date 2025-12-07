@@ -1,0 +1,51 @@
+route_id,origin,destination,distance_km,avg_time_mins
+R001,Breannaberg,Emilyport,755.58,316
+R002,Lake Richard,Shermantown,793.31,219
+R003,West April,Randallstad,339.92,363
+R004,Portermouth,West Stacey,326.13,393
+R005,Amberburgh,New Michealberg,245.35,281
+R006,Lake Joseph,Masontown,67.64,226
+R007,North David,Samanthashire,543.21,315
+R008,New Heather,Holthaven,663.19,447
+R009,East Crystalshire,East Kathrynton,682.22,366
+R010,West Williamshire,North Michelleport,121.24,542
+R011,Port Rodneyfort,Stewartport,947.53,491
+R012,Lake Sabrina,Brookstown,105.14,578
+R013,North Julia,Port Alishaton,693.15,257
+R014,East Brian,West Edwardville,299.67,320
+R015,South Kimberly,Dennisview,406.88,72
+R016,New Kaylafort,West Antoniotown,395.52,209
+R017,South Richardchester,Lake John,920.78,531
+R018,West Erikland,Carrollhaven,112.39,197
+R019,Richardfurt,South Kyle,529.58,139
+R020,Lake Kathrynmouth,North Laura,306.58,468
+R021,West Raymond,North Patrick,911.77,335
+R022,Lake Richard,West Richard,193.6,269
+R023,East Kyliestad,East Bridget,136.51,462
+R024,Harveyview,West Susan,880.02,262
+R025,South Lauren,Smithland,896.0,363
+R026,Hawkinsstad,Alvaradofort,875.64,574
+R027,Port Cory,South Latoyahaven,221.07,533
+R028,South Angelafort,Josephview,90.61,447
+R029,Nunezville,Blankenshipborough,472.56,80
+R030,Timothystad,East Michaelside,934.47,379
+R031,North Diamond,Loriborough,363.44,279
+R032,Lake Isaiah,Lake Anneland,866.9,61
+R033,Hayesland,Charlesville,80.03,482
+R034,North Andrewview,Richardsonport,376.41,76
+R035,Hodgesside,Pamelaberg,381.21,249
+R036,Lake Sabrina,West Gregoryport,927.83,448
+R037,Port Deborahshire,Port Marie,922.03,442
+R038,Mitchellland,Stevenland,939.28,199
+R039,Cherylland,Williamsberg,706.27,190
+R040,East Tina,Port Alicialand,153.0,302
+R041,West David,New Stephanieville,264.72,296
+R042,Nelsontown,Chapmantown,966.72,388
+R043,Billyshire,East Richard,260.4,202
+R044,Port Tammy,Kevinstad,227.58,324
+R045,New James,Amandaville,837.6,371
+R046,New Cynthiafort,New John,159.78,579
+R047,Shannonfurt,Torresshire,562.71,401
+R048,Johnnyshire,Port Daniel,851.52,80
+R049,Suarezstad,West Haleyside,682.29,377
+R050,New Sandra,Port Maxwell,675.71,122
