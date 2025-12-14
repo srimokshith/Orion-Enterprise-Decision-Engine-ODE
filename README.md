@@ -1,6 +1,6 @@
 # 🎯 NovaCorp UDIP - Unified Decision Intelligence Platform
 
-A comprehensive decision intelligence platform for e-commerce, logistics, and manufacturing operations combining predictive analytics, optimization, and real-time monitoring..
+A comprehensive decision intelligence platform for e-commerce, logistics, and manufacturing operations combining predictive analytics, optimization, and real-time monitoring.
 
 ## 🌟 Project Overview
 
